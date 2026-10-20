@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta property="og:title" content="Meruva Reddi Naga Narasimha · Data Engineer">
-<meta property="og:description" content="Microsoft Fabric lakehouses, PySpark pipelines and Power BI reporting.">
+<meta property="og:title" content="Meruva Reddi Naga Narasimha · Data Engineer &amp; Analyst">
+<meta property="og:description" content="Microsoft Certified Fabric Data Engineer. Lakehouses, PySpark pipelines and Power BI reporting.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://meruvareddinaganarasimha.github.io/">
+<meta property="og:image" content="https://meruvareddinaganarasimha.github.io/avatar.jpg">
 <meta name="theme-color" content="#2340FF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFC233'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial,sans-serif' font-size='26' font-weight='900' text-anchor='middle' fill='%230F1230'%3ENM%3C/text%3E%3C/svg%3E">
 <title>Meruva Reddi Naga Narasimha</title>
-<meta name="description" content="Data engineer working with Microsoft Fabric, PySpark, SQL, Python and Power BI.">
+<meta name="description" content="Data engineer and analyst working with Microsoft Fabric, PySpark, SQL, Python and Power BI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
@@ -18,7 +20,7 @@
 :root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 [hidden]{display:none!important}
 img{max-width:100%}
-/* Layout: color-blocked poster bands. Cobalt hero with a live Medallion pipeline, quiet working sections, sun-yellow sign-off. */
+/* Layout: color-blocked poster bands. Cobalt hero with portrait and a live Medallion pipeline, quiet working sections, an ink recognition band, sun-yellow sign-off. */
 :root{
   --bg:#F4F5FB;
   --bg-alt:#EBEDF8;
@@ -31,6 +33,10 @@ img{max-width:100%}
   --on-band-muted:rgba(255,255,255,.84);
   --on-band-line:rgba(255,255,255,.26);
   --band-deep:rgba(6,10,70,.22);
+  --deep:#0F1230;
+  --on-deep:#F1F2FF;
+  --on-deep-muted:rgba(241,242,255,.74);
+  --on-deep-line:rgba(241,242,255,.16);
   --link:#2340FF;
   --tang:#FF5B1F;
   --tang-ink:#C23A00;
@@ -54,14 +60,14 @@ img{max-width:100%}
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#090A1C; --bg-alt:#0E1029; --surface:#141640; --fg:#EEF0FF; --muted:#A2A7D2; --line:#282C60;
-    --band:#1F35DD; --link:#9DA9FF; --tang:#FF6A33; --tang-ink:#FF9466; --pink:#FF4D94; --pink-ink:#FF85B6;
+    --band:#1F35DD; --deep:#171A4F; --link:#9DA9FF; --tang:#FF6A33; --tang-ink:#FF9466; --pink:#FF4D94; --pink-ink:#FF85B6;
     --sun:#FFC940; --cat-eng:#5770FF; --cat-bi:#FF6A33; --cat-code:#FF4D94; --focus:#9DA9FF;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#090A1C; --bg-alt:#0E1029; --surface:#141640; --fg:#EEF0FF; --muted:#A2A7D2; --line:#282C60;
-  --band:#1F35DD; --link:#9DA9FF; --tang:#FF6A33; --tang-ink:#FF9466; --pink:#FF4D94; --pink-ink:#FF85B6;
+  --band:#1F35DD; --deep:#171A4F; --link:#9DA9FF; --tang:#FF6A33; --tang-ink:#FF9466; --pink:#FF4D94; --pink-ink:#FF85B6;
   --sun:#FFC940; --cat-eng:#5770FF; --cat-bi:#FF6A33; --cat-code:#FF4D94; --focus:#9DA9FF;
   color-scheme:dark;
 }
@@ -73,7 +79,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--nav-bg)}
 a{color:var(--link)}
 :focus-visible{outline:2.5px solid var(--focus);outline-offset:3px;border-radius:6px}
-.nav :focus-visible,.hero :focus-visible{outline-color:var(--sun)}
+.nav :focus-visible,.hero :focus-visible,.deep :focus-visible{outline-color:var(--sun)}
 html.scrolled .nav :focus-visible{outline-color:var(--focus)}
 .contact :focus-visible{outline-color:var(--on-sun)}
 .wrap{max-width:1180px;margin-inline:auto;padding-left:max(clamp(16px,4vw,40px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,40px),env(safe-area-inset-right,0px))}
@@ -86,20 +92,31 @@ html.scrolled .nav{box-shadow:0 1px 0 var(--line)}
 .brand{display:inline-flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em}
 .mark{width:34px;height:34px;display:grid;place-items:center;border-radius:6px;background:var(--sun);color:var(--on-sun);font-size:12px;font-weight:800;letter-spacing:0}
 .nav-links{margin-left:auto;display:flex;gap:2px}
-.nav-links a{color:inherit;text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px;opacity:.82;transition:opacity .2s,background-color .2s}
+.nav-links a{color:inherit;text-decoration:none;font-size:14px;font-weight:500;padding:8px 13px;border-radius:999px;opacity:.82;transition:opacity .2s,background-color .2s}
 .nav-links a:hover,.nav-links a[aria-current="true"]{opacity:1;background:color-mix(in srgb,currentColor 13%,transparent)}
 .theme-btn{flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;border:1.5px solid color-mix(in srgb,currentColor 35%,transparent);background:transparent;color:inherit;cursor:pointer;transition:transform .35s ease,border-color .2s}
 .theme-btn:hover{border-color:currentColor;transform:rotate(-25deg)}
 .theme-btn svg{width:18px;height:18px}
-@media (max-width:759px){.nav-links{display:none}.theme-btn{margin-left:auto}}
+@media (max-width:819px){.nav-links{display:none}.theme-btn{margin-left:auto}}
 
 /* Hero */
-.hero{background:var(--band);color:var(--on-band);padding-block:clamp(36px,6vw,80px) clamp(36px,5vw,64px)}
+.hero{background:var(--band);color:var(--on-band);padding-block:clamp(32px,6vw,80px) clamp(36px,5vw,64px)}
+.hero-grid{display:grid;gap:24px 56px;align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr) auto}}
 .hero-eyebrow{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-band-muted)}
-.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,8.2vw,100px);line-height:1;letter-spacing:-.035em;margin:18px 0 24px;text-wrap:balance}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,96px);line-height:1;letter-spacing:-.035em;margin:18px 0 24px;text-wrap:balance}
 .hero h1 .hl{color:var(--sun)}
 .hero-lead{margin:0;max-width:58ch;font-size:clamp(16.5px,1.5vw,19px);color:var(--on-band-muted)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cert-pill{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:7px 16px 7px 7px;border-radius:20px;background:var(--band-deep);border:1px solid var(--on-band-line);font-size:14px;font-weight:500;line-height:1.35;color:var(--on-band)}
+.cert-pill .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sun);color:var(--on-sun);display:grid;place-items:center}
+.cert-pill svg{width:14px;height:14px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.portrait{--ps:clamp(200px,22vw,270px);position:relative;width:var(--ps);height:var(--ps);flex:none;max-width:100%}
+@media (max-width:899px){.portrait{order:-1;--ps:132px}}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 32s linear infinite}
+.ring text{fill:var(--on-band);font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.14em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portrait img{position:absolute;inset:17%;width:66%;height:66%;border-radius:50%;object-fit:cover;border:4px solid var(--sun);background:var(--band-deep)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn svg{width:16px;height:16px;flex:none}
@@ -141,8 +158,8 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 #skill-chips{margin-bottom:18px}
 .skills-layout{display:grid;gap:20px;align-items:start}
 @media (min-width:960px){.skills-layout{grid-template-columns:minmax(0,1fr) 340px;gap:24px}}
-.chart{--lw:180px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px 14px;min-width:0}
-@media (max-width:599px){.chart{--lw:108px;padding:14px 12px 12px}}
+.chart{--lw:190px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px 14px;min-width:0}
+@media (max-width:599px){.chart{--lw:112px;padding:14px 12px 12px}}
 .axis{display:grid;grid-template-columns:var(--lw) minmax(0,1fr);height:22px;margin-bottom:6px}
 .axis-track{position:relative}
 .tick{position:absolute;top:0;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -152,7 +169,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .gl{position:absolute;top:0;bottom:0;left:var(--lw);right:0;pointer-events:none}
 .gl i{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
 .gl i.nowl{width:0;background:none;border-left:1.5px dashed var(--tang)}
-.srow{appearance:none;-webkit-appearance:none;border:0;margin:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;width:100%;display:grid;grid-template-columns:var(--lw) minmax(0,1fr);align-items:center;padding:7px 0;border-radius:6px;position:relative;transition:background-color .2s}
+.srow{appearance:none;-webkit-appearance:none;border:0;margin:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;width:100%;display:grid;grid-template-columns:var(--lw) minmax(0,1fr);align-items:center;padding:6px 0;border-radius:6px;position:relative;transition:background-color .2s}
 .srow:hover{background:color-mix(in srgb,var(--c) 7%,transparent)}
 .srow[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 14%,transparent)}
 .sname{display:flex;flex-direction:column;gap:2px;padding:0 12px 0 8px;font-weight:600;font-size:14px;line-height:1.25;min-width:0}
@@ -173,6 +190,8 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .sp-since strong{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,54px);line-height:1;letter-spacing:-.04em;color:var(--c)}
 .sp-since span{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .spanel p{margin:16px 0;font-size:15px;color:var(--muted)}
+.sp-cert{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:6px;background:color-mix(in srgb,var(--c) 11%,transparent);font-size:13.5px;line-height:1.4;margin-bottom:18px}
+.sp-cert svg{flex:none;width:18px;height:18px;margin-top:1px}
 .mini{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .sp-used ul{list-style:none;margin:0 0 18px;padding:0}
 .sp-used li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
@@ -197,13 +216,14 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .palso{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .palso li{font-family:var(--mono);font-size:10.5px;padding:5px 8px;border-radius:4px;background:color-mix(in srgb,var(--c) 13%,transparent);color:var(--fg);transition:background-color .3s,color .3s}
 .pcard h3{margin:0;font-family:var(--display);font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.015em;text-wrap:balance}
-.pright p{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted);transition:color .3s}
+.pclient{margin:-4px 0 0;font-family:var(--mono);font-size:11px;color:var(--muted);transition:color .3s}
+.pright p.pdesc{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted);transition:color .3s}
 .ptags{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:6px}
 .tag{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:transparent;color:inherit;font:500 12px/1 var(--body);padding:7px 10px;border-radius:999px;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
 .tag:hover{border-color:currentColor}
 @media (hover:hover){
   .pcard:hover{background:var(--band);border-color:var(--band);color:var(--on-band);transform:translateY(-4px)}
-  .pcard:hover .pmeta,.pcard:hover .pmetric > span,.pcard:hover .pright p{color:var(--on-band-muted)}
+  .pcard:hover .pmeta,.pcard:hover .pmetric > span,.pcard:hover .pdesc,.pcard:hover .pclient{color:var(--on-band-muted)}
   .pcard:hover .pmetric strong{color:var(--sun)}
   .pcard:hover .palso li{background:var(--on-band-line);color:var(--on-band)}
   .pcard:hover .tag{border-color:var(--on-band-line)}
@@ -215,12 +235,57 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
   .pgrid:not(.filtered) .feat h3{font-size:21px}
 }
 
+/* Recognition */
+.deep{background:var(--deep);color:var(--on-deep)}
+.deep .eyebrow{color:var(--sun)}
+.deep .lead{color:var(--on-deep-muted)}
+.awards{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--on-deep-line)}
+.award{display:grid;grid-template-columns:120px 44px minmax(0,1fr);grid-template-areas:"date icon body";align-items:start;column-gap:16px;padding:22px 12px;border-top:1px solid var(--on-deep-line);border-radius:4px;transition:background-color .25s}
+@media (hover:hover){.award:hover{background:color-mix(in srgb,var(--sun) 9%,transparent)}}
+@media (max-width:599px){.award{grid-template-columns:34px minmax(0,1fr);grid-template-areas:"icon date" "icon body";padding:18px 4px;column-gap:12px}}
+.aw-date{grid-area:date;font-family:var(--mono);font-size:12px;color:var(--sun);padding-top:6px;font-variant-numeric:tabular-nums}
+@media (max-width:599px){.aw-date{padding:0 0 4px}}
+.aw-icon{grid-area:icon}
+.aw-icon svg{width:30px;height:30px;display:block}
+.aw-icon .st{fill:var(--sun)}
+.aw-body{grid-area:body;min-width:0}
+.award h3{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(18px,2.3vw,25px);line-height:1.2;letter-spacing:-.02em;text-wrap:balance}
+.aw-org{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--on-deep)}
+.award p{margin:6px 0 0;color:var(--on-deep-muted);font-size:15px;max-width:60ch}
+.subhead{margin:clamp(56px,8vw,96px) 0 20px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);display:flex;align-items:center;gap:10px}
+.subhead::before{content:"";width:24px;height:2px;background:currentColor}
+.quotes{display:grid;gap:28px;align-items:start}
+@media (min-width:960px){.quotes{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:48px}}
+.quote-stage{min-width:0}
+.qmark{display:block;height:52px;font-family:var(--display);font-weight:800;font-size:110px;line-height:1;color:var(--sun)}
+.quote{margin:0;min-height:200px}
+@media (max-width:599px){.quote{min-height:0}}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(20px,2.5vw,31px);line-height:1.35;letter-spacing:-.015em;text-wrap:pretty}
+.quote figcaption{margin-top:22px;display:flex;flex-direction:column;gap:4px}
+.quote figcaption b{font-weight:600;font-size:16px}
+.quote figcaption span{font-family:var(--mono);font-size:11.5px;color:var(--on-deep-muted)}
+.qbar{height:2px;background:var(--on-deep-line);margin-top:26px;overflow:hidden;border-radius:2px}
+.qbar i{display:block;height:100%;width:100%;background:var(--sun);transform:scaleX(0);transform-origin:left center}
+.qbar i.run{animation:qfill 8s linear forwards}
+@keyframes qfill{to{transform:scaleX(1)}}
+.people{display:grid;gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:960px){.people{grid-template-columns:minmax(0,1fr)}}
+.person{appearance:none;-webkit-appearance:none;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;border:1px solid var(--on-deep-line);background:transparent;color:var(--on-deep);font:inherit;text-align:left;cursor:pointer;min-width:0;transition:background-color .25s,border-color .25s,color .25s}
+.person:hover{border-color:var(--on-deep)}
+.ini{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--sun);color:var(--sun);font:700 12px/1 var(--display);transition:background-color .25s,color .25s,border-color .25s}
+.pn{display:flex;flex-direction:column;min-width:0}
+.pn b{font-weight:600;font-size:14px;line-height:1.25}
+.pn small{font-family:var(--mono);font-size:10px;line-height:1.45;color:var(--on-deep-muted);transition:color .25s}
+.person[aria-pressed="true"]{background:var(--sun);border-color:var(--sun);color:var(--on-sun)}
+.person[aria-pressed="true"] .ini{background:var(--on-sun);color:var(--sun);border-color:var(--on-sun)}
+.person[aria-pressed="true"] small{color:var(--on-sun)}
+
 /* Journey */
 .tl{list-style:none;margin:0;padding:0;position:relative;max-width:900px;--td:170px;--tr:40px}
 @media (max-width:699px){.tl{--td:0px;--tr:30px}}
 .tl::before,.tl::after{content:"";position:absolute;top:8px;left:calc(var(--td) + var(--tr) / 2 - 1px);width:2px;border-radius:2px}
 .tl::before{bottom:8px;background:var(--line)}
-.tl::after{height:calc((100% - 16px) * var(--pf,1));background:linear-gradient(to bottom,var(--cat-eng),var(--cat-code) 55%,var(--tang))}
+.tl::after{height:calc((100% - 16px) * var(--pf,1));background:linear-gradient(to bottom,var(--sun),var(--cat-eng) 30%,var(--cat-code) 75%,var(--tang))}
 .tli{display:grid;grid-template-columns:var(--td) var(--tr) minmax(0,1fr);grid-template-areas:"date rail body";padding-bottom:40px;position:relative}
 .tli:last-child{padding-bottom:0}
 @media (max-width:699px){.tli{grid-template-columns:var(--tr) minmax(0,1fr);grid-template-areas:"rail date" "rail body";padding-bottom:32px}}
@@ -248,12 +313,22 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .collapse li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--c)}
 
 /* Certifications */
+.cert-feature{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;padding:clamp(20px,3vw,32px);border-radius:8px;background:var(--band);color:var(--on-band);margin-bottom:16px}
+.cf-badge{width:clamp(64px,8vw,96px);height:auto;display:block}
+.cf-badge .sh{fill:var(--sun)}
+.cf-badge .st{fill:none;stroke:var(--on-sun);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.cf-k{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-band-muted)}
+.cert-feature h3{margin:8px 0 10px;font-family:var(--display);font-weight:700;font-size:clamp(22px,3.4vw,38px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
+.cf-meta{margin:0;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--on-band-muted);overflow-wrap:anywhere}
+@media (max-width:519px){.cert-feature{grid-template-columns:minmax(0,1fr)}}
 .certs{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:699px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.cert{display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:8px;background:var(--surface);border:1.5px solid var(--line);min-width:0;transition:background-color .25s,border-color .25s,color .25s,transform .25s}
+@media (max-width:859px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:599px){.certs{grid-template-columns:minmax(0,1fr)}}
+.cert{display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;align-items:start;padding:16px 18px;border-radius:8px;background:var(--surface);border:1.5px solid var(--line);min-width:0;transition:background-color .25s,border-color .25s,color .25s,transform .25s}
 @media (hover:hover){.cert:hover{background:var(--sun);border-color:var(--sun);color:var(--on-sun);transform:translateY(-3px)}.cert:hover small{color:var(--on-sun)}}
-.cert b{font-weight:600;font-size:15.5px;line-height:1.3}
-.cert small{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.cert-txt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.cert b{font-weight:600;font-size:15px;line-height:1.3}
+.cert small{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted);line-height:1.5}
 .ci{width:38px;height:38px}
 .ci .b{fill:var(--c)}
 .ci .r{fill:var(--c);opacity:.45}
@@ -268,6 +343,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .contact-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
 .btn-ink{background:var(--on-sun);color:var(--sun)}
 .btn-line{border-color:var(--on-sun);color:var(--on-sun)}
+.btn-line small{font-family:var(--mono);font-size:11px;font-weight:500;opacity:.8}
 .copy-msg{font-family:var(--mono);font-size:12px}
 .contact-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(56px,8vw,96px);padding-top:20px;border-top:1.5px solid var(--on-sun-line);font-family:var(--mono);font-size:11.5px}
 
@@ -284,6 +360,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
     <nav class="nav-links" aria-label="Sections">
       <a href="#skills">Toolkit</a>
       <a href="#work">Work</a>
+      <a href="#recognition">Recognition</a>
       <a href="#journey">Journey</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -297,12 +374,21 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 <main>
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="wrap">
-      <p class="hero-eyebrow">Meruva Reddi Naga Narasimha · Data Engineer</p>
-      <h1 id="hero-title">Raw data in.<br><span class="hl">Decisions out.</span></h1>
-      <p class="hero-lead">I'm Narasimha, a data engineer at Grant Thornton with 4.5+ years in data. I design Microsoft Fabric lakehouses, PySpark pipelines and Power BI reporting that turn scattered sources into numbers teams can act on.</p>
-      <div class="hero-cta">
-        <a class="btn btn-sun" href="#work">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="hero-eyebrow">Meruva Reddi Naga Narasimha · Data Engineer &amp; Analyst</p>
+          <h1 id="hero-title">Raw data in.<br><span class="hl">Decisions out.</span></h1>
+          <p class="hero-lead">I'm Narasimha, a data engineer and analyst at Grant Thornton INDUS in Bengaluru. Over 4.5 years I've grown from marketing analytics into building Microsoft Fabric lakehouses, PySpark pipelines and Power BI reporting that turn scattered sources into numbers teams can act on.</p>
+          <p class="cert-pill"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Microsoft Certified: Fabric Data Engineer Associate</p>
+          <div class="hero-cta">
+            <a class="btn btn-sun" href="#work">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="portrait">
+          <svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="ringpath" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs><text><textPath href="#ringpath" textLength="536" lengthAdjust="spacing">MICROSOFT FABRIC · PYSPARK · POWER BI · SQL · PYTHON · DP-700 ·</textPath></text></svg>
+          <img src="avatar.jpg" alt="Meruva Reddi Naga Narasimha" width="288" height="287">
+        </div>
       </div>
       <figure class="pipe">
         <figcaption class="pipe-head"><span><i class="pulse"></i>Medallion pipeline</span><span class="pipe-path">Azure · SharePoint · Web → Lakehouse → Power BI</span></figcaption>
@@ -310,8 +396,8 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
       </figure>
       <div class="kpis">
         <div class="kpi"><strong><span data-count="4.5" data-dec="1">4.5</span><em>+</em></strong><span>years building data products</span></div>
+        <div class="kpi"><strong><span data-count="5">5</span></strong><span>workplace awards since 2022</span></div>
         <div class="kpi"><strong><span data-count="300">300</span><em>+</em></strong><span>stakeholders reached by my automations</span></div>
-        <div class="kpi"><strong><span data-count="100">100</span><em>K+</em></strong><span>customer reviews analyzed</span></div>
         <div class="kpi"><strong><span data-count="90">90</span><em>%</em></strong><span>less manual pipeline monitoring</span></div>
       </div>
     </div>
@@ -322,14 +408,14 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
       <div class="sec-head">
         <p class="eyebrow">Toolkit</p>
         <h2 id="skills-title">The stack, in the order I picked it up.</h2>
-        <p class="lead">Each bar starts when a tool became part of my day-to-day work and runs to today. Tap a tool to see where I've used it.</p>
+        <p class="lead">Each bar starts when a tool became part of my work and runs to today. Tap a tool to see where I've used it and how I'm certified in it.</p>
       </div>
       <div class="chips" id="skill-chips" role="group" aria-label="Filter tools by area"></div>
       <div class="skills-layout">
         <div class="chart" id="chart">
           <div class="axis" aria-hidden="true"><span></span><div class="axis-track" id="axis"></div></div>
           <div class="srows" id="srows" role="group" aria-label="Tools"></div>
-          <div class="chart-foot"><span>Bar start = first used at work</span><span class="nowkey"><i></i>Today</span></div>
+          <div class="chart-foot"><span>Bar start = when the tool entered my work</span><span class="nowkey"><i></i>Today</span></div>
         </div>
         <aside class="spanel" id="spanel" aria-live="polite"></aside>
       </div>
@@ -341,7 +427,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
       <div class="sec-head">
         <p class="eyebrow">Selected work</p>
         <h2 id="work-title">Pipelines, dashboards and automations that paid off.</h2>
-        <p class="lead">Ten projects across Grant Thornton, Hiveminds and Synergy. Filter by tool, or tap any tag on a card.</p>
+        <p class="lead">Eleven projects across Grant Thornton INDUS, HiveMinds and Synergy Group. Filter by tool, or tap any tag on a card.</p>
       </div>
       <div class="ptools">
         <div class="chips" id="proj-chips" role="group" aria-label="Filter projects by tool"></div>
@@ -351,12 +437,32 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
     </div>
   </section>
 
+  <section class="section deep" id="recognition" aria-labelledby="rec-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Recognition</p>
+        <h2 id="rec-title">Recognized by the people I work with.</h2>
+        <p class="lead">Four awards at Grant Thornton INDUS since 2024, Best Performer at HiveMinds, and six recommendations from managers, mentors and teammates.</p>
+      </div>
+      <ol class="awards" id="awards"></ol>
+      <p class="subhead">What colleagues say</p>
+      <div class="quotes">
+        <div class="quote-stage" id="quote-stage">
+          <span class="qmark" aria-hidden="true">“</span>
+          <figure class="quote" id="quote" aria-live="polite"></figure>
+          <div class="qbar" id="qbar-wrap" aria-hidden="true"><i id="qbar"></i></div>
+        </div>
+        <div class="people" id="people" role="group" aria-label="Choose a recommendation"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="journey" aria-labelledby="journey-title">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Journey</p>
-        <h2 id="journey-title">From NIT Trichy to enterprise lakehouses.</h2>
-        <p class="lead">Roles, education and awards, newest first. Open a role to see its highlights.</p>
+        <h2 id="journey-title">From civil engineering to data engineering.</h2>
+        <p class="lead">Roles, milestones and education, newest first. Open an entry to see more.</p>
       </div>
       <ol class="tl" id="tl"></ol>
     </div>
@@ -368,6 +474,14 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
         <p class="eyebrow">Certifications</p>
         <h2 id="certs-title">Certified in the tools I use every day.</h2>
       </div>
+      <article class="cert-feature">
+        <svg class="cf-badge" viewBox="0 0 120 136" aria-hidden="true"><path class="sh" d="M60 4 112 22v46c0 32-22 54-52 64C30 122 8 100 8 68V22z"/><path class="st" d="m36 70 16 16 32-33"/></svg>
+        <div>
+          <p class="cf-k">Microsoft Certified · Exam DP-700</p>
+          <h3>Fabric Data Engineer Associate</h3>
+          <p class="cf-meta">Earned Jul 2026 · Valid through Jul 2027<br>Credential ID 3091F9412E186D4A</p>
+        </div>
+      </article>
       <div class="certs" id="cert-grid"></div>
     </div>
   </section>
@@ -381,12 +495,12 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
     <a class="mail" id="mail" href="mailto:meruvareddy04@gmail.com">meruvareddy04@gmail.com</a>
     <div class="contact-actions">
       <button class="btn btn-ink" id="copy-mail" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy email</span></button>
-      <a class="btn btn-line" href="https://www.linkedin.com/in/meruva-reddi-naga-narasimha-5033a1193" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a class="btn btn-line" href="https://www.linkedin.com/in/meruva-reddi-naga-narasimha-5033a1193" target="_blank" rel="noopener">LinkedIn <small>6.4K followers</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       <span class="copy-msg" id="copy-msg" role="status"></span>
     </div>
     <div class="contact-foot">
-      <span>Off the clock: cricket, badminton and carrom.</span>
-      <span>Tirupati, India · © <span id="yr">2026</span> Meruva Reddi Naga Narasimha</span>
+      <span>Speaks English, Telugu and Hindi · Off the clock: cricket, badminton and carrom</span>
+      <span>Bengaluru &amp; Tirupati, India · © <span id="yr">2026</span> Meruva Reddi Naga Narasimha</span>
     </div>
   </div>
 </footer>
@@ -400,6 +514,8 @@ const $ = s => document.querySelector(s);
 const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const PLUS = '<svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>';
+const STAR = '<svg viewBox="0 0 32 32" aria-hidden="true"><path class="st" d="m16 2.5 4.1 8.6 9.4 1.2-6.9 6.5 1.8 9.3L16 23.5l-8.4 4.6 1.8-9.3-6.9-6.5 9.4-1.2z"/></svg>';
 
 /* ---------- Content (edit here) ---------- */
 const CATS = {
@@ -408,101 +524,134 @@ const CATS = {
   code: { label: 'Automation & Python', c: 'var(--cat-code)' }
 };
 const TAG_CAT = {
-  'Microsoft Fabric':'eng','PySpark':'eng','Spark SQL':'eng','Delta Lake':'eng','Azure':'eng',
-  'Power BI':'bi','DAX':'bi','SQL':'bi','Analytics':'bi',
-  'Python':'code','Power Automate':'code','Selenium':'code','NLP':'code','SharePoint':'code'
+  'Microsoft Fabric':'eng','PySpark':'eng','Spark SQL':'eng','Delta Lake':'eng','Azure':'eng','dbt':'eng',
+  'Power BI':'bi','DAX':'bi','SQL':'bi','Analytics':'bi','Marketing':'bi','Excel':'bi',
+  'Python':'code','Power Automate':'code','Selenium':'code','NLP':'code','Alteryx':'code'
 };
 
 const PROJECTS = [
-  { feat:true, org:'Grant Thornton', when:'2024 – now', metric:'35%', label:'faster queries', also:['50% faster onboarding'],
+  { feat:true, org:'Grant Thornton INDUS', when:'2024 – now', metric:'35%', label:'faster queries', also:['50% faster onboarding'],
     title:'Enterprise Fabric lakehouse',
     desc:'Designed an enterprise-scale lakehouse on OneLake and Delta Lake using Medallion architecture, with PySpark and Spark SQL pipelines across the Bronze, Silver and reporting layers.',
     tags:['Microsoft Fabric','PySpark','Spark SQL','Delta Lake'] },
-  { org:'Grant Thornton', when:'2024 – now', metric:'95%', label:'less manual reporting', also:['300+ stakeholders'],
+  { org:'Grant Thornton INDUS', when:'2024 – now', metric:'90%', label:'less manual monitoring', also:['40% faster ETL runs','30% better data quality'],
+    title:'Bronze-to-Silver ETL with email alerts',
+    desc:'Fabric Pipelines bring Azure data into Bronze. PySpark notebooks validate schemas, load incrementally and optimize Delta tables, and an automated monitoring framework sends email alerts.',
+    tags:['Microsoft Fabric','PySpark','Azure','Delta Lake'] },
+  { org:'Grant Thornton INDUS', when:'2024 – now', metric:'95%', label:'less manual reporting', also:['300+ stakeholders'],
     title:'PMD performance notifications',
     desc:'Personalized performance notifications that reach every stakeholder automatically, built on Power Automate, Fabric, Power BI, SharePoint and Excel.',
-    tags:['Power Automate','Microsoft Fabric','Power BI','SharePoint'] },
-  { org:'Grant Thornton', when:'2024 – now', metric:'85%', label:'less manual effort',
+    tags:['Power Automate','Microsoft Fabric','Power BI','Excel'] },
+  { org:'Grant Thornton INDUS', when:'Sep – Nov 2024', metric:'85%', label:'less manual effort', also:['12 competitor websites'],
     title:'VOC competitor intelligence',
-    desc:'A Python scraper built with Selenium and Pandas feeds Power BI dashboards, so competitor reporting runs without manual research.',
-    tags:['Python','Selenium','Power BI'] },
-  { feat:true, org:'Grant Thornton', when:'2024 – now', metric:'90%', label:'less manual monitoring', also:['40% faster ETL runs','30% better data quality'],
-    title:'Bronze-to-Silver ETL with email alerts',
-    desc:'Fabric Pipelines ingest data from Azure into Bronze. PySpark notebooks then validate schemas, load incrementally and optimize Delta tables, and an automated monitoring framework sends email alerts.',
-    tags:['Microsoft Fabric','PySpark','Azure','Delta Lake'] },
-  { org:'Hiveminds', when:'2022 – 2024', metric:'80%', label:'more efficient reporting',
-    title:'Marketing performance dashboards',
-    desc:'Centralized Power BI dashboards for clicks, orders and revenue, with DAX measures for MoM, WoW and DoD trends and tuned SQL models underneath.',
-    tags:['Power BI','DAX','SQL'] },
-  { org:'Hiveminds', when:'2022 – 2024', metric:'100K+', label:'customer reviews analyzed', also:['15% sales lift'],
-    title:'Customer review sentiment',
-    desc:'Sentiment analysis with NLTK and TextBlob surfaced product and support issues. Acting on them contributed to a 15% increase in sales.',
-    tags:['Python','NLP','Analytics'] },
-  { org:'Hiveminds', when:'2022 – 2024', metric:'20%', label:'higher early-customer LTV', also:['15% better retention'],
-    title:'Cohort retention and LTV',
-    desc:'Cohort analysis of customer retention and lifetime value, with findings that shaped the retention strategy.',
-    tags:['Analytics'] },
-  { org:'Hiveminds', when:'2022 – 2024', metric:'10+<small>hrs</small>', label:'saved every week', also:['20% higher team productivity'],
+    desc:'A Python scraper built with Selenium and Pandas collects article titles, dates and keywords from competing consulting firms. A Power BI dashboard tracks their monthly publishing trends, industry focus and keyword use.',
+    tags:['Python','Selenium','Power BI','Marketing'] },
+  { org:'Grant Thornton INDUS', when:'Jun – Aug 2024', metric:'70%', label:'more efficient reporting',
+    title:'ROMI dashboard',
+    desc:'A return-on-marketing-investment dashboard that joins sales, revenue and campaign spend from Azure Data Factory with optimized SQL, plus a month-over-month view designed for US stakeholders.',
+    tags:['Power BI','SQL','Azure','Marketing'] },
+  { org:'HiveMinds', when:'2022 – 2024', client:'For agency clients', metric:'80%', label:'more efficient reporting',
+    title:'Ad-spend performance dashboards',
+    desc:'A centralized Power BI system tracking clicks, orders and revenue against ad spend, with DAX for day, week and month-over-month trends and SQL tuned inside dbt models.',
+    tags:['Power BI','DAX','SQL','dbt','Marketing'] },
+  { org:'HiveMinds', when:'Jul – Sep 2023', client:'For a jewellery brand', metric:'10+<small>hrs</small>', label:'saved every week', also:['60% faster channel analysis','20% higher productivity'],
     title:'Automated marketing reports',
-    desc:'Daily, weekly and monthly marketing reports generated with Python, SQL and Power BI instead of assembled by hand.',
-    tags:['Python','SQL','Power BI'] },
-  { org:'Hiveminds', when:'2022 – 2024', metric:'15%', label:'more website traffic', also:['100+ search terms'],
+    desc:'Daily, weekly and monthly reports generated with Python, SQL and Power BI instead of assembled by hand.',
+    tags:['Python','SQL','Power BI','Marketing'] },
+  { org:'HiveMinds', when:'Feb – Mar 2024', client:'For a youth fashion brand', metric:'15%', label:'more website traffic', also:['100+ search terms'],
     title:'Share of voice analysis',
-    desc:'Competitive share-of-voice tracking across more than 100 search terms, feeding marketing decisions.',
-    tags:['Analytics'] },
-  { org:'Synergy', when:'2021', metric:'$1M', label:'projected savings a year', also:['120% ROI','$10K/month leak found'],
+    desc:'Competitive share-of-voice tracking across more than 100 search terms, feeding sharper marketing strategy.',
+    tags:['Analytics','Marketing'] },
+  { org:'HiveMinds', when:'2023', client:'For a youth fashion brand', metric:'100K+', label:'customer reviews analyzed', also:['15% sales lift'],
+    title:'Customer review sentiment',
+    desc:'Sentiment analysis with NLTK and TextBlob surfaced UI and support issues. Acting on them contributed to a 15% increase in sales.',
+    tags:['Python','NLP','Analytics'] },
+  { org:'HiveMinds', when:'Sep – Dec 2022', client:'For an online grocery platform', metric:'20%', label:'higher early-customer LTV', also:['15% better retention'],
+    title:'Cohort retention and LTV',
+    desc:'Cohort analysis of newly acquired customers, measuring retention and lifetime value to guide acquisition strategy.',
+    tags:['Analytics','Marketing'] },
+  { org:'Synergy Group', when:'May – Jul 2021', metric:'$1M', label:'projected savings a year', also:['120% ROI','$10K/month leak found'],
     title:'Procurement spend analysis',
     desc:'A Power BI dashboard exposed costly purchases from non-contracted suppliers. That led to a cost-saving policy and a business case for a new procurement system.',
     tags:['Power BI','Analytics'] }
 ];
 
 const SKILLS = [
-  { name:'Power BI',             cat:'bi',   since:[2021,5], tag:'Power BI',         note:"My first internship dashboard was built in Power BI, and it's still where most of my work lands." },
-  { name:'SQL',                  cat:'bi',   since:[2022,6], tag:'SQL',              note:'Query and data-model tuning that keeps dashboards fast as reporting needs grow.' },
-  { name:'DAX',                  cat:'bi',   since:[2022,6], tag:'DAX',              note:'Time-intelligence measures for month, week and day-over-day trends.' },
-  { name:'Python',               cat:'code', since:[2022,6], tag:'Python',           note:'Web scraping, text analysis and report automation.' },
-  { name:'NLTK & TextBlob',      cat:'code', since:[2022,6], tag:'NLP',              note:'Sentiment scoring across more than 100,000 customer reviews.' },
-  { name:'Microsoft Fabric',     cat:'eng',  since:[2024,5], tag:'Microsoft Fabric', note:'Lakehouses, pipelines and notebooks for enterprise reporting at Grant Thornton.' },
+  { name:'Power BI',             cat:'bi',   since:[2021,5], tag:'Power BI',         note:"My first internship dashboard was built in Power BI, and it's still where most of my work lands.", cert:'Fullstax Power BI Foundational · Grant Thornton (US)' },
+  { name:'Excel',                cat:'bi',   since:[2021,5], tag:'Excel',            note:'The starting point for analysis since my internship, and still part of stakeholder reporting today.', cert:'Mastering Data Analysis in Excel · Udemy' },
+  { name:'SQL',                  cat:'bi',   since:[2022,6], tag:'SQL',              note:'Query and model tuning that keeps dashboards fast, from dbt models to ROMI reporting.', cert:'SQL Masterclass: SQL for Data Analytics · Udemy' },
+  { name:'DAX',                  cat:'bi',   since:[2022,6], tag:'DAX',              note:'Time-intelligence measures for day, week and month-over-month trends.' },
+  { name:'Marketing analytics',  cat:'bi',   since:[2022,6], tag:'Marketing',        note:'Ad-spend, ROMI, share-of-voice and cohort analysis for brands and for Grant Thornton INDUS.', cert:'Google Ads: Search, Display, Apps and Measurement' },
+  { name:'dbt',                  cat:'eng',  since:[2022,6], tag:'dbt',              note:'Optimized the SQL inside dbt models as dashboard requirements changed.' },
+  { name:'Python',               cat:'code', since:[2022,6], tag:'Python',           note:'Web scraping, text analysis and report automation.', cert:'Python for Everybody · University of Michigan' },
+  { name:'NLTK & TextBlob',      cat:'code', since:[2023,6], tag:'NLP',              note:'Sentiment scoring across more than 100,000 customer reviews.' },
+  { name:'Microsoft Fabric',     cat:'eng',  since:[2024,5], tag:'Microsoft Fabric', note:'Lakehouses, pipelines and notebooks for enterprise reporting at Grant Thornton INDUS.', cert:'Microsoft Certified: Fabric Data Engineer Associate (DP-700)' },
   { name:'PySpark',              cat:'eng',  since:[2024,5], tag:'PySpark',          note:'Bronze-to-Silver transformations with schema validation and incremental loading.' },
   { name:'Spark SQL',            cat:'eng',  since:[2024,5], tag:'Spark SQL',        note:'Transformations across the Bronze, Silver and reporting layers.' },
   { name:'Delta Lake & OneLake', cat:'eng',  since:[2024,5], tag:'Delta Lake',       note:'Medallion storage, optimized so queries run 35% faster.' },
-  { name:'Azure',                cat:'eng',  since:[2024,5], tag:'Azure',            note:'Source data ingested into the Bronze layer through Fabric Pipelines.' },
+  { name:'Azure & Data Factory', cat:'eng',  since:[2024,5], tag:'Azure',            note:'Source data landed in Bronze through Fabric Pipelines, and campaign data pulled from ADF for ROMI reporting.' },
   { name:'Power Automate',       cat:'code', since:[2024,5], tag:'Power Automate',   note:'Personalized notifications for more than 300 stakeholders.' },
-  { name:'Selenium',             cat:'code', since:[2024,5], tag:'Selenium',         note:'Automated collection of competitor data for VOC reporting.' }
+  { name:'Alteryx',              cat:'code', since:[2024,5], tag:'Alteryx',          note:'Repeatable analytics workflows without hand-written code.', cert:'Alteryx Designer Core · Alteryx' },
+  { name:'Selenium',             cat:'code', since:[2024,9], tag:'Selenium',         note:'Automated collection of articles from 12 competitor websites.' }
+];
+
+const AWARDS = [
+  { date:'Mar 2026', title:'Excellence: Above and Beyond', org:'Grant Thornton INDUS', note:'For consistently exceeding expectations and going the extra mile for stakeholders.' },
+  { date:'Apr 2025', title:'Star Award, Q1', org:'Grant Thornton INDUS', note:'Quarterly Star recognition with a certificate of appreciation.' },
+  { date:'Mar 2025', title:'Certificate of Recognition for Excellence', org:'Grant Thornton', note:'Recognized by team leadership for demonstrating excellence.' },
+  { date:'Dec 2024', title:'All-Star Annual Award', org:'Grant Thornton INDUS Marketing Annual Awards', note:'Annual award and trophy, won seven months after joining.' },
+  { date:'Aug 2022', title:'Best Performer, Marketing Analyst Team', org:'HiveMinds', note:'Two months into my first full-time role.' }
+];
+
+const QUOTES = [
+  { name:'Kristen Brill', role:'VP, Strategy & Operations, CYBRILL', rel:'Led his team', text:'I was always impressed by his strong technical skills and eagerness to contribute.' },
+  { name:'Sathwik Boddupalli', role:'Group Head, Performance Marketing & Growth', rel:'His first mentor at HiveMinds', text:'He brought a rare mix of curiosity, determination, and humility.' },
+  { name:'Vinod Kumar', role:'Technical Lead (GenAI), HCL Tech', rel:'Worked with him on several projects', text:'His ability to interpret complex data and present it in a clear, actionable way is truly impressive.' },
+  { name:'Surya Paluri', role:'Data Engineer', rel:'Managed him directly', text:'I highly recommend Narasimha as a quick learner and dedicated professional.' },
+  { name:'Koushik Y R', role:'Data Specialist, HiveMinds', rel:'Teammate at HiveMinds', text:'He is a talented data analyst with a strong eye for detail and a great ability to turn data into actionable insights.' },
+  { name:'Poojitha P G', role:'Ads Account Manager, Amazon', rel:'Worked on the same team', text:'The data interpretation he pitches in is highly commendable.' }
 ];
 
 const TYPES = {
-  work:  { label:'Work',      c:'var(--cat-eng)',  ci:'var(--link)' },
-  edu:   { label:'Education', c:'var(--cat-code)', ci:'var(--pink-ink)' },
-  award: { label:'Award',     c:'var(--sun)',      ci:'var(--tang-ink)' }
+  work: { label:'Work',          c:'var(--cat-eng)',  ci:'var(--link)' },
+  cert: { label:'Certification', c:'var(--sun)',      ci:'var(--tang-ink)' },
+  edu:  { label:'Education',     c:'var(--cat-code)', ci:'var(--pink-ink)' }
 };
 const TIMELINE = [
-  { type:'award', date:'Mar 2026', title:'Deliver Award: Excellence Above and Beyond', org:'Grant Thornton' },
-  { type:'work', date:'May 2024 – Present', current:true, open:true, title:'Associate, Analytics', org:'Grant Thornton · Bangalore',
+  { type:'cert', date:'Jul 2026', title:'Microsoft Certified: Fabric Data Engineer Associate', org:'Passed Microsoft exam DP-700' },
+  { type:'work', date:'May 2024 – Present', current:true, open:true, title:'Associate, Analytics', org:'Grant Thornton INDUS · Bengaluru, hybrid', toggle:'Highlights',
     points:['Designed an enterprise Microsoft Fabric lakehouse on Medallion architecture, cutting query time by 35%',
             'Built Azure-to-Bronze pipelines and Bronze-to-Silver PySpark notebooks with automated email alerts',
+            'Built a ROMI dashboard from Azure Data Factory data, improving reporting efficiency by 70%',
             'Automated performance notifications for 300+ stakeholders with Power Automate',
-            'Automated competitor intelligence with Python scraping and Power BI'] },
-  { type:'award', date:'Aug 2022', title:'Deliver Award: Best Performer', org:'Marketing Analyst Team, Hiveminds' },
-  { type:'work', date:'Jun 2022 – May 2024', title:'Data Analyst', org:'Hiveminds · Bangalore',
-    points:['Built centralized Power BI dashboards for clicks, orders and revenue',
-            'Ran sentiment analysis on 100K+ customer reviews',
-            'Ran cohort, LTV and share-of-voice analyses for the marketing team',
-            'Automated recurring marketing reports, saving 10+ hours a week'] },
-  { type:'work', date:'May – Jul 2021', title:'Business Analyst Intern', org:'Synergy',
+            'Tracked 12 competitor websites with Python scraping and Power BI'] },
+  { type:'work', date:'Jun 2022 – May 2024', title:'Data Analyst', org:'HiveMinds Innovative Market Solutions · Bengaluru', toggle:'Highlights',
+    points:['Built a centralized Power BI system tracking clicks, orders and revenue against ad spend for agency clients',
+            'Tuned SQL inside dbt models to keep dashboards in step with changing requirements',
+            'Ran sentiment analysis on 100K+ customer reviews, plus cohort and share-of-voice analyses',
+            'Automated recurring reports, saving 10+ hours a week and cutting channel analysis time by 60%'] },
+  { type:'work', date:'May – Jul 2021', title:'Business Analyst Intern', org:'Synergy Group · Remote', toggle:'Highlights',
     points:['Found $10K a month in non-contracted supplier spend through a Power BI dashboard',
             'Wrote the business case for a new procurement system, projecting $1M a year in savings and a 120% ROI'] },
-  { type:'edu', date:'2018 – 2022', title:'National Institute of Technology, Tiruchirappalli', org:'Graduated with high honors · CGPA 7.41/10' },
-  { type:'edu', date:'2016 – 2018', title:'Sri Chaitanya College', org:'92.6% in Class 12 · Campus top ranker in JEE' }
+  { type:'edu', date:'2018 – 2022', title:'B.Tech, Civil Engineering', org:'National Institute of Technology, Tiruchirappalli · Graduated with high honors, CGPA 7.41', toggle:'Campus life',
+    points:['Head of the Organising Committee, Akshara NITT (2021–22), after a year as Marketing and Publicity Manager',
+            'Co-head of Public Relations and Hospitality, Civil Engineering Association (2021–22)',
+            'Ambience Deputy Manager at Nittfest (2020–21), building lantern installations across campus',
+            'NSS volunteer for a campus plantation drive and an eye camp with Titan Eye Plus',
+            'Carrom team at Sportsfete ’19, plus the Sportsfete marathon'] },
+  { type:'edu', date:'2016 – 2018', title:'Higher Secondary, MPC', org:'Sri Chaitanya College of Education · 92.6% in Class 12 · Campus top ranker in JEE' }
 ];
 
 const CERTS = [
-  { name:'Microsoft Fabric',                 area:'Data engineering',    cat:'eng' },
-  { name:'Microsoft Power BI',               area:'BI & analytics',      cat:'bi' },
-  { name:'SQL for Data Analytics',           area:'BI & analytics',      cat:'bi' },
-  { name:'Python for Everybody',             area:'Programming',         cat:'code' },
-  { name:'Mastering Data Analysis in Excel', area:'Analytics',           cat:'bi' },
-  { name:'Alteryx',                          area:'Analytics workflows', cat:'code' }
+  { name:'Alteryx Designer Core',                     by:'Alteryx',                       date:'May 2024', cat:'code' },
+  { name:'Fullstax Power BI: Foundational',           by:'Grant Thornton (US)',           date:'Jun 2024', cat:'bi' },
+  { name:'Data Analytics 2023: Foundational',         by:'Grant Thornton (US)',           date:'Jun 2024', cat:'bi' },
+  { name:'Google Ads: Search, Display, Apps and Measurement', by:'Google',                date:'',         cat:'bi' },
+  { name:'Microsoft Power BI: The Complete Masterclass', by:'Udemy',                      date:'Oct 2021', cat:'bi' },
+  { name:'SQL Masterclass: SQL for Data Analytics',   by:'Udemy',                         date:'Sep 2021', cat:'bi' },
+  { name:'Mastering Data Analysis in Excel',          by:'Udemy',                         date:'Sep 2021', cat:'bi' },
+  { name:'Digital Marketing: The Sales Funnel',       by:'Udemy',                         date:'Jul 2021', cat:'code' },
+  { name:'Python for Everybody',                      by:'University of Michigan · Coursera', date:'May 2021', cat:'code' }
 ];
 
 /* ---------- Pipeline animation ---------- */
@@ -651,9 +800,10 @@ function selectSkill(i){
     <h3>${s.name}</h3>
     <div class="sp-since"><strong>${yrs(s)}</strong><span>hands-on since ${MON[s.since[1]-1]} ${s.since[0]}</span></div>
     <p>${s.note}</p>
-    <div class="sp-used"><span class="mini">Used in ${used.length} project${used.length === 1 ? '' : 's'}</span>
+    ${s.cert ? `<div class="sp-cert">${CHECK}<span>${s.cert}</span></div>` : ''}
+    ${used.length ? `<div class="sp-used"><span class="mini">Used in ${used.length} project${used.length === 1 ? '' : 's'}</span>
       <ul>${used.map(p => `<li><b>${p.title}</b><span>${p.org}</span></li>`).join('')}</ul></div>
-    <button class="btn btn-solid" type="button" data-show="${s.tag}">Show ${used.length === 1 ? 'this project' : 'these projects'} ${ARROW}</button>`;
+    <button class="btn btn-solid" type="button" data-show="${s.tag}">Show ${used.length === 1 ? 'this project' : 'these projects'} ${ARROW}</button>` : ''}`;
 }
 srows.addEventListener('click', e => { const r = e.target.closest('.srow'); if (r) selectSkill(+r.dataset.i); });
 
@@ -670,7 +820,7 @@ function animateBars(){
   let k = 0;
   rows.forEach(r => {
     if (r.hidden) return;
-    const d = k*65;
+    const d = k*55;
     r.querySelector('.sbar').animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}], {duration:850, delay:d, easing:'cubic-bezier(.22,.8,.24,1)', fill:'backwards'});
     r.querySelector('.sdot').animate([{transform:'translate(-50%,-50%) scale(0)'},{transform:'translate(-50%,-50%) scale(1)'}], {duration:380, delay:d+700, easing:'cubic-bezier(.3,1.7,.5,1)', fill:'backwards'});
     k++;
@@ -692,7 +842,7 @@ if ('IntersectionObserver' in window){
 
 /* ---------- Projects ---------- */
 const pgrid = $('#pgrid'), pchips = $('#proj-chips'), pcount = $('#pcount');
-const MAIN = ['All','Microsoft Fabric','PySpark','Power BI','SQL','Python','Power Automate','Analytics'];
+const MAIN = ['All','Microsoft Fabric','PySpark','Power BI','SQL','Python','Marketing','Analytics'];
 let pf = 'All';
 pgrid.innerHTML = PROJECTS.map(p => {
   const cat = TAG_CAT[p.tags[0]] || 'bi';
@@ -705,7 +855,8 @@ pgrid.innerHTML = PROJECTS.map(p => {
       </div>
       <div class="pright">
         <h3>${p.title}</h3>
-        <p>${p.desc}</p>
+        ${p.client ? `<p class="pclient">${p.client}</p>` : ''}
+        <p class="pdesc">${p.desc}</p>
         <div class="ptags">${p.tags.map(t => `<button class="tag" type="button" data-t="${t}">${t}</button>`).join('')}</div>
       </div>
     </div>
@@ -743,6 +894,47 @@ spanel.addEventListener('click', e => {
 });
 setProjectFilter('All', false);
 
+/* ---------- Recognition ---------- */
+$('#awards').innerHTML = AWARDS.map(a => `<li class="award">
+  <span class="aw-date">${a.date}</span>
+  <span class="aw-icon">${STAR}</span>
+  <div class="aw-body"><h3>${a.title}</h3><span class="aw-org">${a.org}</span><p>${a.note}</p></div>
+</li>`).join('');
+
+const people = $('#people'), quote = $('#quote'), qbar = $('#qbar'), qbarWrap = $('#qbar-wrap'), stage = $('#quote-stage');
+const initials = n => n.split(' ').filter(Boolean).slice(0,2).map(w => w[0]).join('').toUpperCase();
+people.innerHTML = QUOTES.map((q,i) => `<button class="person" type="button" data-i="${i}" aria-pressed="false">
+  <span class="ini" aria-hidden="true">${initials(q.name)}</span>
+  <span class="pn"><b>${q.name}</b><small>${q.rel}</small></span>
+</button>`).join('');
+const personBtns = [...people.querySelectorAll('.person')];
+let qi = 0, qTimer = 0, qAuto = !reduce, qVisible = false;
+function restartBar(){
+  clearTimeout(qTimer);
+  qbar.classList.remove('run');
+  qbarWrap.hidden = !qAuto;
+  if (!qAuto || !qVisible) return;
+  void qbar.offsetWidth;
+  qbar.classList.add('run');
+  qTimer = setTimeout(() => showQuote((qi+1) % QUOTES.length, false), 8000);
+}
+function showQuote(i, byUser){
+  qi = i;
+  personBtns.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.i === i)));
+  const q = QUOTES[i];
+  quote.innerHTML = `<blockquote>${q.text}</blockquote><figcaption><b>${q.name}</b><span>${q.role} · ${q.rel}</span></figcaption>`;
+  if (!reduce && quote.animate) quote.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'none'}], {duration:450, easing:'cubic-bezier(.2,.7,.2,1)'});
+  if (byUser) qAuto = false;
+  restartBar();
+}
+people.addEventListener('click', e => { const b = e.target.closest('.person'); if (b) showQuote(+b.dataset.i, true); });
+stage.addEventListener('mouseenter', () => { clearTimeout(qTimer); qbar.classList.remove('run'); });
+stage.addEventListener('mouseleave', restartBar);
+showQuote(0, false);
+if ('IntersectionObserver' in window){
+  new IntersectionObserver(es => { qVisible = es[0].isIntersecting; restartBar(); }, {threshold:0.3}).observe(stage);
+}
+
 /* ---------- Journey ---------- */
 const tl = $('#tl');
 tl.innerHTML = TIMELINE.map((e,i) => {
@@ -754,7 +946,7 @@ tl.innerHTML = TIMELINE.map((e,i) => {
       <span class="tl-type">${T.label}</span>
       <h3>${e.title}</h3>
       <p class="tl-org">${e.org}</p>
-      ${e.points ? `<button class="tl-toggle" type="button" aria-expanded="${!!e.open}" aria-controls="${id}"><span>Highlights</span>${PLUS}</button>
+      ${e.points ? `<button class="tl-toggle" type="button" aria-expanded="${!!e.open}" aria-controls="${id}"><span>${e.toggle || 'Highlights'}</span>${PLUS}</button>
       <div class="collapse${e.open ? ' open' : ''}" id="${id}"><div><ul>${e.points.map(p => `<li>${p}</li>`).join('')}</ul></div></div>` : ''}
     </div>
   </li>`;
@@ -777,11 +969,11 @@ tl.addEventListener('click', e => {
 /* ---------- Certifications ---------- */
 $('#cert-grid').innerHTML = CERTS.map(c => `<div class="cert" style="--c:${CATS[c.cat].c}">
   <svg class="ci" viewBox="0 0 40 40" aria-hidden="true"><path class="r" d="M13 24 10 37l10-5 10 5-3-13z"/><circle class="b" cx="20" cy="16" r="12"/><path class="k" d="m14.5 16 3.5 3.5 7-7"/></svg>
-  <b>${c.name}</b><small>${c.area}</small></div>`).join('');
+  <div class="cert-txt"><b>${c.name}</b><small>${c.by}${c.date ? ' · ' + c.date : ''}</small></div></div>`).join('');
 
 /* ---------- Nav state ---------- */
 const hero = $('#top'), navLinks = [...document.querySelectorAll('.nav-links a')];
-const SECS = ['skills','work','journey','contact'].map(id => document.getElementById(id));
+const SECS = ['skills','work','recognition','journey','contact'].map(id => document.getElementById(id));
 function updateNav(){
   root.classList.toggle('scrolled', hero.getBoundingClientRect().bottom < 72);
   let cur = '';
