@@ -322,7 +322,8 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4.4vw,52px);l
 .cf-meta{margin:0;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--on-band-muted);overflow-wrap:anywhere}
 @media (max-width:519px){.cert-feature{grid-template-columns:minmax(0,1fr)}}
 .certs{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:859px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:980px){.certs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:979px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:599px){.certs{grid-template-columns:minmax(0,1fr)}}
 .cert{display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;align-items:start;padding:16px 18px;border-radius:8px;background:var(--surface);border:1.5px solid var(--line);min-width:0;transition:background-color .25s,border-color .25s,color .25s,transform .25s}
 @media (hover:hover){.cert:hover{background:var(--sun);border-color:var(--sun);color:var(--on-sun);transform:translateY(-3px)}.cert:hover small{color:var(--on-sun)}}
@@ -526,7 +527,7 @@ const CATS = {
 const TAG_CAT = {
   'Microsoft Fabric':'eng','PySpark':'eng','Spark SQL':'eng','Delta Lake':'eng','Azure':'eng','dbt':'eng',
   'Power BI':'bi','DAX':'bi','SQL':'bi','Analytics':'bi','Marketing':'bi','Excel':'bi',
-  'Python':'code','Power Automate':'code','Selenium':'code','NLP':'code','Alteryx':'code'
+  'Python':'code','Power Automate':'code','Selenium':'code','NLP':'code'
 };
 
 const PROJECTS = [
@@ -591,7 +592,6 @@ const SKILLS = [
   { name:'Delta Lake & OneLake', cat:'eng',  since:[2024,5], tag:'Delta Lake',       note:'Medallion storage, optimized so queries run 35% faster.' },
   { name:'Azure & Data Factory', cat:'eng',  since:[2024,5], tag:'Azure',            note:'Source data landed in Bronze through Fabric Pipelines, and campaign data pulled from ADF for ROMI reporting.' },
   { name:'Power Automate',       cat:'code', since:[2024,5], tag:'Power Automate',   note:'Personalized notifications for more than 300 stakeholders.' },
-  { name:'Alteryx',              cat:'code', since:[2024,5], tag:'Alteryx',          note:'Repeatable analytics workflows without hand-written code.', cert:'Alteryx Designer Core · Alteryx' },
   { name:'Selenium',             cat:'code', since:[2024,9], tag:'Selenium',         note:'Automated collection of articles from 12 competitor websites.' }
 ];
 
@@ -643,7 +643,6 @@ const TIMELINE = [
 ];
 
 const CERTS = [
-  { name:'Alteryx Designer Core',                     by:'Alteryx',                       date:'May 2024', cat:'code' },
   { name:'Fullstax Power BI: Foundational',           by:'Grant Thornton (US)',           date:'Jun 2024', cat:'bi' },
   { name:'Data Analytics 2023: Foundational',         by:'Grant Thornton (US)',           date:'Jun 2024', cat:'bi' },
   { name:'Google Ads: Search, Display, Apps and Measurement', by:'Google',                date:'',         cat:'bi' },
