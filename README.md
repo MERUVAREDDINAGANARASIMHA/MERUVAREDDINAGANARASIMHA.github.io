@@ -1,7 +1,8 @@
 # Meruva Reddi Naga Narasimha · Personal site
 
-- `index.html`: the 3D data world. A scroll-driven Three.js scene (raw-data storm, blueprint bridge, Bronze / Silver / Gold islands, skills constellation, arcade, sunrise) with eight story chapters and the Pipeline Runner arcade game.
-- `classic.html`: the fast-reading classic portfolio.
-- `avatar.jpg`: profile photo, also used for link previews.
+- `index.html`: the main site. An editorial scroll story (terracotta hero with a code-drawn workspace and portrait, then About, Experience, Projects, Toolkit, Recognition, Education and Contact on blended colour bands).
+- `world.html`: the 3D data world. A scroll-driven Three.js scene with the Pipeline Runner arcade game (`world.html#play` opens the game directly).
+- `classic.html`: redirects to the main site, so old links keep working.
+- `portrait.jpg`, `avatar.jpg`: photos used by the pages and link previews.
 
-No build step. To update content, edit the data arrays near the top of each page's main `<script>` block (`PROJECTS`, `SKILLS`, `AWARDS`, `QUOTES`, `CERTS`, and `TIMELINE` in classic). Hosted on GitHub Pages from the `main` branch root.
+No build step. To update content, edit the data arrays near the top of each page's main `<script>` block (`PROJECTS`, `SKILLS`, `QUOTES`, `AWARDS`, `CERTS`). Hosted on GitHub Pages from the `main` branch root.
